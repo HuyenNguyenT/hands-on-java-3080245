@@ -1,7 +1,5 @@
 package bank;
 
-import org.sqlite.SQLiteConfig.Pragma;
-
 public class Customer {
   private int id;
   private String name;
@@ -56,5 +54,4 @@ public class Customer {
   public void setAccountId(int accountId) {
     this.accountId = accountId;
   }
-
 }
