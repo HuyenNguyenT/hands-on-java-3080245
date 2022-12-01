@@ -9,7 +9,6 @@ public class Accounts {
     setId(id);
     setType(type);
     setBalance(balance);
-
   }
 
   public int getId() {
