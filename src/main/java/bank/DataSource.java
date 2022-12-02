@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.naming.spi.DirStateFactory.Result;
 
 public class DataSource {
   public static Connection connection(){
@@ -21,19 +20,25 @@ public class DataSource {
     return connection;
   }
 
+  /**
+   * @param username
+   * @return
+   */
   public static Customer getCustomer(String username){
     String sql = "select * from customers where username =?";
     Customer customer = null;
     try(Connection connection = connection();
     PreparedStatement statement = connection.prepareStatement(sql)){
       statement.setString(1,username);
-      try(ResultSet resultSet = statement.executeQuery(sql)){
-        customer = new Customer(resultSet.getInt("id"),
-        resultSet.getString("name"),
-        resultSet.getString("username"),
-        resultSet.getString("password"),
-        resultSet.getInt("account_id"));
+      try(ResultSet resultSet = statement.executeQuery()){
+        customer = new Customer(
+          resultSet.getInt("id"),
+         resultSet.getString("name"),
+         resultSet.getString("username"),
+         resultSet.getString("password"),
+         resultSet.getInt("account_id"));
       }
+
     } catch(SQLException e){
         e.printStackTrace();
     }
