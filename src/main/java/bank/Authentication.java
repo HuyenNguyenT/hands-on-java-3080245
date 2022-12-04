@@ -1,9 +1,9 @@
+package bank;
+
 import javax.security.auth.login.LoginException;
 
-import bank.Customer;
-import bank.DataSource;
-
 public class Authentication {
+
   public static Customer login(String username, String password) throws LoginException {
     Customer customer = DataSource.getCustomer(username);
     if (customer == null) {
@@ -20,4 +20,5 @@ public class Authentication {
     customer.setAuthenticated(false);
 
   }
+
 }

@@ -1,8 +1,8 @@
 package bank;
 
-import java.net.Authenticator;
 import java.util.Scanner;
 
+import javax.naming.AuthenticationException;
 import javax.security.auth.login.LoginException;
 
 public class Menu {
@@ -28,7 +28,7 @@ public class Menu {
 
     Customer customer = null;
     try{
-      customer = Authentication.login(username,password);
+      
 
     } catch (LoginException e){
       System.out.println("There is an error: " + e.getMessage());
