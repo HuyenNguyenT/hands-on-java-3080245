@@ -15,7 +15,8 @@ public class Authentication {
     }
     else throw new LoginException("Incorrect password")
   }
-  public static void logout(Customer customer){
+
+  public static void logout(Customer customer) {
     customer.setAuthenticated(false);
 
   }
